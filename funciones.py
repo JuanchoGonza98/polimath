@@ -56,6 +56,48 @@ def sumapol(P,Q):
       sum[aux] = Q[aux]
       aux = aux + 1
   return sum
+def Representacion_poli(entrada):  # recibe la lista donde se encuentra el polinomio
+    longitud = len(entrada) - 1  # variable aux para recorrer la lista entrada
+    n = longitud
+    aux = []  # lista para guardar cada monomio
 
+    if (len(entrada) == 1):
+      aux.append(str(entrada[0]))
+    else:
+      for i in range(len(entrada)):
+        if (longitud == n and entrada[longitud] != 0):  # evitar el caracter de concatenación + al primer elemento
+          if (longitud > 1):
+            elemento = str(entrada[longitud]) + 'x^' + str(longitud)
+            aux.append(elemento)
+          else:
+            elemento = str(entrada[longitud]) + 'x'
+            aux.append(elemento)
+
+        if (longitud != n and longitud > 1 and entrada[
+          longitud] != 0):  # si es el primer elemeto añadir caracter + en caso de los positivos
+          if (entrada[longitud] < 0):
+            elemento = str(entrada[longitud]) + 'x^' + str(longitud)
+            aux.append(elemento)
+          else:
+            elemento = '+' + str(entrada[longitud]) + 'x^' + str(longitud)
+            aux.append(elemento)
+        if (longitud == 1 and entrada[
+          longitud] != 0 and longitud != n):  # evitar el caracter ^ cuando el exponente es 1
+          if (entrada[longitud] < 0):
+            elemento = str(entrada[longitud]) + 'x'
+            aux.append(elemento)
+          else:
+            elemento = '+' + str(entrada[longitud]) + 'x'
+            aux.append(elemento)
+        if (longitud == 0 and entrada[longitud] != 0):  # evitar la variable x para el termino independiente
+          if (entrada[longitud] < 0):
+            elemento = str(entrada[longitud])
+            aux.append(elemento)
+          else:
+            elemento = '+' + str(entrada[longitud])
+            aux.append(elemento)
+        longitud = longitud - 1
+    cad = "".join(aux)
+    return cad
 
 
