@@ -693,7 +693,7 @@ def mensaje():
 Ventana = tkinter.Tk()
 Ventana.geometry("800x600")
 Ventana.config(bg="green")
-Ventana.title("Grupo 7")
+Ventana.title("Grupo 4")
 cabezera = tkinter.Label(Ventana, text="Polimath.py", bg="orange", font="Broadway 40")
 cabezera.pack(fill=tkinter.X)
 photo1 = PhotoImage(file="polim.gif")
